@@ -162,13 +162,6 @@ return {
     vim.g.mkdp_filetypes = { "markdown" }
   end,
   ft = { "markdown" }},
-  {
-    "NvChad/base46",
-    branch = "v2.0",
-    build = function()
-      require("base46").load_all_highlights()
-    end,
-  },
   {"nvim-telescope/telescope.nvim",lazy=false},
   {"ravenxrz/DAPInstall.nvim",lazy=false},
   {"mfussenegger/nvim-dap",lazy=false},
