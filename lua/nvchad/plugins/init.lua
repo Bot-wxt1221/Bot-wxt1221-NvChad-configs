@@ -145,4 +145,34 @@ return {
       end
     end,
   },
+{"Bot-wxt1221/Luogu-On-Neovim",lazy=false, build=function() require ("Luogu-On-Neovim").install() end,config=function() require ("Luogu-On-Neovim").setup() end},
+  {"equalsraf/neovim-gui-shim",lazy=false},
+  {"lervag/vimtex",lazy=false},
+  {"nvim-lua/plenary.nvim"},
+  {
+          'xeluxee/competitest.nvim',
+          dependencies = 'MunifTanjim/nui.nvim',
+          config = function() require('competitest').setup() end,
+  },
+  {'wakatime/vim-wakatime',lazy=false},
+  {'iamcco/markdown-preview.nvim',
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" }},
+  {
+    "NvChad/base46",
+    branch = "v2.0",
+    build = function()
+      require("base46").load_all_highlights()
+    end,
+  },
+  {"nvim-telescope/telescope.nvim",lazy=false},
+  {"ravenxrz/DAPInstall.nvim",lazy=false},
+  {"mfussenegger/nvim-dap",lazy=false},
+  {"rcarriga/nvim-dap-ui",lazy=false},
+  {"theHamsta/nvim-dap-virtual-text",lazy=false},
 }
+

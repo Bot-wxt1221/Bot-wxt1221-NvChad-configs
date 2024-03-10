@@ -9,4 +9,4 @@ local options = {
   indent = { enable = true },
 }
 
-return options
+return option

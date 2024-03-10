@@ -104,4 +104,16 @@ M.base46 = {
   },
 }
 
+vim.keymap.set('v','d',"\"_d")
+vim.keymap.set('n','d',"\"_d")
+vim.keymap.set('n','dd',"\"_dd");
+vim.keymap.set('v','>','>gv');
+vim.keymap.set('v','<','<gv');
+vim.keymap.set('n',";",":");
+
+vim.opt.smartindent = true
+
+vim.opt.ignorecase = false
+vim.opt.smartcase = false
+
 return vim.tbl_deep_extend("force", M, require "chadrc")

@@ -57,3 +57,33 @@ vim.g["loaded_ruby_provider"] = 0
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
+
+
+require("nvchad.configs.dap.init").setup()
+require('competitest').setup{
+ template_file ="/home/wxt/OI/Temp.cpp",
+ compile_command ={
+    cpp={exec="g++",args={"$(FNAME)","-Wall","-std=c++14","-DONLINE_JUDGE","-fsanitize=undefined,address","-o",".cph/$(FNOEXT).cphbin"}}
+  },
+  run_command={
+    cpp={exec="./.cph/$(FNOEXT).cphbin"}
+  },
+  testcases_directory="./.cph",
+  evaluate_template_modifiers=true,
+  multiple_testing=2,
+  maximum_time=20000,
+} -- to use default configuration
+require("nvchad.configs.cph").setup()
+
+local configs = require("nvim-treesitter.configs")
+configs.setup({
+  ensure_installed = { "markdown", "markdown_inline", "lua", "typescript", "html" ,'c','cpp'},
+  sync_install = true,
+ highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
+
+  indent = { enable = true },
+})
+
