@@ -54,6 +54,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    lazy=false,
     event = "User FilePost",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
