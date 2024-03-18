@@ -33,8 +33,10 @@ M.on_attach = function(client, bufnr)
   if conf.signature and client.server_capabilities.signatureHelpProvider then
     require("nvchad.lsp.signature").setup(client, bufnr)
   end
+end
 
 -- disable semanticTokens
+M.on_init = function(client, _)
   if not conf.semantic_tokens and client.supports_method "textDocument/semanticTokens" then
     client.server_capabilities.semanticTokensProvider = nil
   end
@@ -67,6 +69,7 @@ M.defaults = function()
   require("lspconfig").lua_ls.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
+    on_init = M.on_init,
 
     settings = {
       Lua = {
