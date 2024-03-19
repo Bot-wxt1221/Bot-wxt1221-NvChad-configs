@@ -122,6 +122,7 @@ return {
       require("cmp").setup(opts)
     end,
   },
+  {"nvim-neotest/nvim-nio"},
 
   {
     "numToStr/Comment.nvim",
