@@ -44,10 +44,11 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "User FilePost",
-    opts = {
-      indent = { char = "│", highlight = "IblChar" },
-      scope = { char = "│", highlight = "IblScopeChar" },
-    },
+    opts = 
+function(_, opts)
+		-- Other blankline configuration here
+		return require("indent-rainbowline").make_opts(opts)
+   	end,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "blankline")
 
@@ -58,7 +59,7 @@ return {
       dofile(vim.g.base46_cache .. "blankline")
     end,
   },
-
+  {"TheGLander/indent-rainbowline.nvim",lazy=false},
   -- file managing , picker etc
   {
     "nvim-tree/nvim-tree.lua",
