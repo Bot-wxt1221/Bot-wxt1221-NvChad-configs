@@ -35,7 +35,8 @@ M.on_attach = function(client, bufnr)
   end
 
 -- disable semanticTokens
-  if not conf.semantic_tokens and client.supports_method "textDocument/semanticTokens" then
+M.on_init = function(client, _)
+  if client.supports_method "textDocument/semanticTokens" then
     client.server_capabilities.semanticTokensProvider = nil
   end
 end
