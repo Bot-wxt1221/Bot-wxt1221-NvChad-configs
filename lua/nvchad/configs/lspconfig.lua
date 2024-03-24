@@ -33,7 +33,11 @@ M.on_attach = function(client, bufnr)
   if conf.signature and client.server_capabilities.signatureHelpProvider then
     require("nvchad.lsp.signature").setup(client, bufnr)
   end
+  if client.supports_method "textDocument/semanticTokens" then
+    client.server_capabilities.semanticTokensProvider = nil
+  end
 end
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.capabilities.textDocument.completion.completionItem = {
