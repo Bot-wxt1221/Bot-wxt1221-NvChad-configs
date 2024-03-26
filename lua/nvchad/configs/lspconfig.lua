@@ -33,7 +33,7 @@ M.on_attach = function(client, bufnr)
   if conf.signature and client.server_capabilities.signatureHelpProvider then
     require("nvchad.lsp.signature").setup(client, bufnr)
   end
-
+end
 -- disable semanticTokens
 M.on_init = function(client, _)
   if client.supports_method "textDocument/semanticTokens" then
