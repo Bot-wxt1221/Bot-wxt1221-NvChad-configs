@@ -63,7 +63,10 @@ M.ui = {
 
   cheatsheet = { theme = "grid" }, -- simple/grid
 
-  lsp = { signature = true },
+  lsp = {
+    signature = true,
+    semantic_tokens = false,
+  },
 
   term = {
     -- hl = "Normal:term,WinSeparator:WinSeparator",
@@ -80,7 +83,24 @@ M.ui = {
 }
 
 M.base46 = {
-  integrations = {},
+  integrations = {
+    "blankline",
+    "cmp",
+    "defaults",
+    "devicons",
+    "git",
+    "lsp",
+    "mason",
+    "nvcheatsheet",
+    "nvdash",
+    "nvimtree",
+    "statusline",
+    "syntax",
+    "treesitter",
+    "tbline",
+    "telescope",
+    "whichkey",
+  },
 }
 
 vim.keymap.set('v','d',"\"_d")
