@@ -123,7 +123,7 @@ return {
     end,
   },
   {"nvim-neotest/nvim-nio"},
-
+  {"hiphish/rainbow-delimiters.nvim"},
   {
     "numToStr/Comment.nvim",
     keys = {

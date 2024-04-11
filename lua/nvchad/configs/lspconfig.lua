@@ -61,29 +61,15 @@ M.capabilities.textDocument.completion.completionItem = {
 M.defaults = function()
   dofile(vim.g.base46_cache .. "lsp")
   require "nvchad.lsp"
-
-  require("lspconfig").lua_ls.setup {
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = {
-            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-            [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-            [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
-            [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
-          },
-          maxPreload = 100000,
-          preloadFileSize = 10000,
-        },
-      },
+  require ("lspconfig").clangd.setup{
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+    cmd={
+      "clangd",
+      "--compile-commands-dir=/home/wxt/.config/nvim/compile_commands.json"
     },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
   }
-end
+ end
 
 return M
