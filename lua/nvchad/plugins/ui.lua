@@ -60,7 +60,7 @@ function(_, opts)
       dofile(vim.g.base46_cache .. "blankline")
     end,
   },
-  {"TheGLander/indent-rainbowline.nvim",lazy=false},
+    {"TheGLander/indent-rainbowline.nvim",lazy=false},
   -- file managing , picker etc
   {
     "nvim-tree/nvim-tree.lua",

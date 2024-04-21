@@ -72,6 +72,21 @@ require('competitest').setup{
   evaluate_template_modifiers=true,
   multiple_testing=2,
   maximum_time=20000,
+  view_output_diff=true,
+  popup_ui={layout = {
+  { 1, {
+       { 1, "so" },
+       { 1, {
+            { 1, "tc" },
+            { 1, "se" },
+          } },
+     } },
+  { 1, {
+       { 1, "eo" },
+       { 1, "si" },
+     } },
+  }
+  },
 } -- to use default configuration
 require("nvchad.configs.cph").setup()
 
@@ -94,11 +109,8 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-
--- This module contains a number of default definitions
 local rainbow_delimiters = require 'rainbow-delimiters'
-
----@type rainbow_delimiters.config
+-- This module contains a number of default definitions
 vim.g.rainbow_delimiters = {
     strategy = {
         [''] = rainbow_delimiters.strategy['global'],
