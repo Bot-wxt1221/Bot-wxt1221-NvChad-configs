@@ -21,7 +21,7 @@ function M.setup()
   dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/nix/store/4305jvxzwyp718y8ysipvxk1fs5vcnmw-vscode-extension-ms-vscode-cpptools-1.20.2/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7',
+    command = '/nix/store/1fzkgz9x4zfg3p35qn6izlr6yv9mj2kr-vscode-extension-ms-vscode-cpptools-1.20.2/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7',
   }
 end
 
