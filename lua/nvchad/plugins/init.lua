@@ -14,7 +14,6 @@ return {
       require("conform").setup(opts)
     end,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
