@@ -66,8 +66,34 @@ M.defaults = function()
     cmd={
       "clangd",
       "--compile-commands-dir=/home/wxt/.config/nvim/compile_commands.json"
+     },
+     filetypes = {"c", "cpp"},
+
+   };
+
+  require("lspconfig").lua_ls.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    on_init = M.on_init,
+
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            vim.fn.expand "$VIMRUNTIME/lua",
+            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
     },
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  filetypes = {"objc", "objcpp", "cuda", "proto" },
   }
  end
 
