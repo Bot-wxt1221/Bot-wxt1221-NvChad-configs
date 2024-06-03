@@ -16,7 +16,7 @@ function M.setup()
   require("nvchad.configs.dap.keymap").setup()
   require("nvchad.configs.dap.ui").setup()
   require("nvchad.configs.dap.icon").setup()
-  require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
+--  require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp", "rust" } })
   local dap = require('dap')
   dap.adapters.cppdbg = {
     id = 'cppdbg',
