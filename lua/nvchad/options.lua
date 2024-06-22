@@ -134,3 +134,6 @@ vim.g.rainbow_delimiters = {
         'RainbowDelimiterCyan',
     },
 }
+local sep = is_windows and "\\" or "/"
+local delim = is_windows and ";" or ":"
+vim.env.PATH = table.concat({vim.fn.stdpath "data", "mason", "bin"}, sep) .. delim .. vim.env.PATH
