@@ -83,4 +83,5 @@ function(_, opts)
       require("which-key").setup(opts)
     end,
   },
+  {"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
 }
