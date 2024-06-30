@@ -1,3 +1,4 @@
+dofile(vim.g.base46_cache .. "nvimtree")
 local options = {
   defaults = {
     vimgrep_arguments = {

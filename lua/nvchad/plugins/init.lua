@@ -23,8 +23,6 @@ return {
       return require "nvchad.configs.treesitter"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      dofile(vim.g.base46_cache .. "treesitter")
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
@@ -37,7 +35,6 @@ return {
       return require "nvchad.configs.gitsigns"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "git")
       require("gitsigns").setup(opts)
     end,
   },
@@ -50,7 +47,6 @@ return {
       return require "nvchad.configs.mason"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "mason")
       require("mason").setup(opts)
 
       -- custom nvchad cmd to install all mason binaries listed
@@ -141,7 +137,6 @@ return {
       return require "nvchad.configs.telescope"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)
 
@@ -242,7 +237,6 @@ function(_, opts)
       return require "nvchad.configs.nvimtree"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "nvimtree")
       require("nvim-tree").setup(opts)
     end,
   },
