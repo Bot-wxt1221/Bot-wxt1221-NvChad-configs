@@ -57,6 +57,16 @@ M.capabilities.textDocument.completion.completionItem = {
 
 M.defaults = function()
   dofile(vim.g.base46_cache .. "lsp")
+  require ("lspconfig").clangd.setup{
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+    cmd={
+      "clangd",
+      "--compile-commands-dir=/home/wxt/.config/nvim/compile_commands.json"
+     },
+     filetypes = {"c", "cpp"},	
+   };
+  }
   require("nvchad.lsp").diagnostic_config()
 
   require("lspconfig").lua_ls.setup {
