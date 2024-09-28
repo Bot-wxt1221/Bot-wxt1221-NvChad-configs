@@ -63,7 +63,6 @@ M.defaults = function()
      },
      filetypes = {"c", "cpp"},	
    };
-  }
   require("nvchad.lsp").diagnostic_config()
 
   require("lspconfig").lua_ls.setup {
