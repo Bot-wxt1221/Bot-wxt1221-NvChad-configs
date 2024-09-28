@@ -54,3 +54,73 @@ local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+require("nvchad.configs.dap.init").setup()
+require('competitest').setup{
+ template_file ="/home/wxt/OI/Temp.cpp",
+ compile_command ={
+    cpp={exec="g++",args={"$(FNAME)","-Wall","-std=c++14","-DONLINE_JUDGE","-fsanitize=undefined,address","-o",".cph/$(FNOEXT).cphbin"}}
+  },
+  run_command={
+    cpp={exec="./.cph/$(FNOEXT).cphbin"}
+  },
+  testcases_directory="./.cph",
+  evaluate_template_modifiers=true,
+  multiple_testing=2,
+  maximum_time=20000,
+  view_output_diff=true,
+  popup_ui={layout = {
+  { 1, {
+       { 1, "so" },
+       { 1, {
+            { 1, "tc" },
+            { 1, "se" },
+          } },
+     } },
+  { 1, {
+       { 1, "eo" },
+       { 1, "si" },
+     } },
+  }
+  },
+} -- to use default configuration
+require("nvchad.configs.cph").setup()
+
+local configs = require("nvim-treesitter.configs")
+configs.setup({
+  ensure_installed = { "markdown", "markdown_inline", "lua", "typescript", "html" ,'c','cpp'},
+  sync_install = true,
+ highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
+
+  indent = { enable = true },
+})
+
+
+-- if you just want default config for the servers then put them in a table
+local rainbow_delimiters = require 'rainbow-delimiters'
+-- This module contains a number of default definitions
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    priority = {
+        [''] = 110,
+        lua = 210,
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+}
